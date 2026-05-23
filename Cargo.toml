@@ -1,0 +1,48 @@
+[package]
+edition = "2024"
+name = "embassy-st7789v-graphics"
+version = "0.1.0"
+authors = ["Jorge Andre Castro <georgeandrec@gmail.com>"]
+build = false
+autolib = false
+autobins = false
+autoexamples = false
+autotests = false
+autobenches = false
+description = "Couche graphique 2D no_std pour écrans TFT LCD ST7789V 240×320, construite au-dessus de embassy-st7789v."
+documentation = "https://docs.rs/embassy-st7789v-graphics"
+readme = "README.md"
+keywords = [
+    "embassy",
+    "st7789v",
+    "tft",
+    "graphics",
+    "no-std",
+]
+categories = [
+    "embedded",
+    "no-std",
+    "hardware-support",
+]
+license = "GPL-2.0-or-later"
+repository = "https://github.com/jorgeandrecastro/embassy-st7789v"
+
+[lib]
+name = "embassy_st7789v_graphics"
+path = "src/lib.rs"
+
+[dependencies.embassy-st7789v]
+version = "0.1"
+
+[dependencies.embedded-hal]
+version = "1.0"
+
+[dependencies.embedded-hal-async]
+version = "1.0"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
